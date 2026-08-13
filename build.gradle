@@ -1,0 +1,96 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "xaeros-biome-filter" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+}
+
+def xaeroWorldMapJar = file(".deps-cache/xaeroworldmap-fabric-${minecraft_version}-${xaero_world_map_version}.jar")
+def xaeroMinimapJar = file(".deps-cache/xaerominimap-fabric-${minecraft_version}-${xaero_minimap_version}.jar")
+def xaeroLibJar = file(".deps-cache/xaerolib/META-INF/jars/xaerolib-fabric-${minecraft_version}-${xaero_lib_version}.jar")
+
+def downloadIfMissing = { File target, String url ->
+    if (!target.exists()) {
+        target.parentFile.mkdirs()
+        new URI(url).toURL().withInputStream { input ->
+            target.withOutputStream { output -> output << input }
+        }
+    }
+}
+
+downloadIfMissing(xaeroWorldMapJar, 'https://cdn.modrinth.com/data/NcUtCpym/versions/NzjI8AbM/xaeroworldmap-fabric-26.2-1.44.2.jar')
+downloadIfMissing(xaeroMinimapJar, 'https://cdn.modrinth.com/data/1bokaNcj/versions/W7vHFz3T/xaerominimap-fabric-26.2-26.4.2.jar')
+if (!xaeroLibJar.exists()) {
+    copy {
+        from zipTree(xaeroWorldMapJar)
+        include "META-INF/jars/xaerolib-fabric-${minecraft_version}-${xaero_lib_version}.jar"
+        into '.deps-cache/xaerolib'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    compileOnly files(xaeroWorldMapJar)
+    compileOnly files(xaeroMinimapJar)
+    compileOnly files(xaeroLibJar)
+    runtimeOnly files(xaeroWorldMapJar)
+    runtimeOnly files(xaeroMinimapJar)
+    runtimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    testImplementation platform('org.junit:junit-bom:5.14.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand 'version': inputs.properties.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+test {
+    useJUnitPlatform()
+}
+
+def licenseSuffix = project.archives_base_name
+tasks.named('jar') {
+    inputs.property 'licenseSuffix', licenseSuffix
+    from('LICENSE') {
+        rename { "${it}_${licenseSuffix}" }
+    }
+}
+

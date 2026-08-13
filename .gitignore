@@ -1,0 +1,10 @@
+.gradle/
+.gradle-dist/
+build/
+run/
+.deps-cache/
+.serena/
+.idea/
+.vscode/
+*.iml
+*.log

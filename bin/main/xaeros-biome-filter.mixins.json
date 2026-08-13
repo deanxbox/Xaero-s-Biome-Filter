@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "deanxbox.xaerosbiomefilter.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "deanxbox.xaerosbiomefilter.mixin.XaerosBiomeFilterMixinPlugin",
+  "client": [
+    "GuiMapToolbarMixin",
+    "GuiMapBiomeFilterRenderMixin",
+    "RegionTextureRenderRegistryMixin",
+    "MinimapTileColorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+

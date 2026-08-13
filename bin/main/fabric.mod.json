@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "xaeros-biome-filter",
+  "version": "${version}",
+  "name": "Xaero's Biome Filter",
+  "description": "Adds instant show-selected and hide-selected biome filtering to Xaero's World Map, with optional Xaero's Minimap support.",
+  "authors": [
+    "deanxbox"
+  ],
+  "license": "MIT",
+  "icon": "assets/xaeros-biome-filter/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "deanxbox.xaerosbiomefilter.XaerosBiomeFilterClient"
+    ]
+  },
+  "mixins": [
+    "xaeros-biome-filter.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": ">=26.2 <26.3",
+    "java": ">=25",
+    "xaeroworldmap": ">=1.42.0"
+  },
+  "suggests": {
+    "xaerominimap": ">=26.2.0"
+  }
+}

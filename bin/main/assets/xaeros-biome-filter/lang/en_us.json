@@ -1,0 +1,14 @@
+{
+  "text.xaeros-biome-filter.title": "Xaero's Biome Filter",
+  "text.xaeros-biome-filter.tooltip": "Biome Filter",
+  "text.xaeros-biome-filter.enabled": "Biome filter: %s",
+  "text.xaeros-biome-filter.mode.show_selected": "Mode: Show selected",
+  "text.xaeros-biome-filter.mode.hide_selected": "Mode: Hide selected",
+  "text.xaeros-biome-filter.selected_count": "Selected biomes: %s",
+  "text.xaeros-biome-filter.page": "Page %s / %s",
+  "text.xaeros-biome-filter.search": "Search biomes",
+  "text.xaeros-biome-filter.clear": "Clear",
+  "text.xaeros-biome-filter.save": "Save",
+  "text.xaeros-biome-filter.on": "ON",
+  "text.xaeros-biome-filter.off": "OFF"
+}
