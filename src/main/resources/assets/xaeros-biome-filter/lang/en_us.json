@@ -7,6 +7,8 @@
   "text.xaeros-biome-filter.selected_count": "Selected biomes: %s",
   "text.xaeros-biome-filter.page": "Page %s / %s",
   "text.xaeros-biome-filter.search": "Search biomes",
+  "text.xaeros-biome-filter.view_selected": "View selected",
+  "text.xaeros-biome-filter.view_all": "View all",
   "text.xaeros-biome-filter.clear": "Clear",
   "text.xaeros-biome-filter.save": "Save",
   "text.xaeros-biome-filter.on": "ON",

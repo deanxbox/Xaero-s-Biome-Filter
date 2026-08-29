@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.2
+
+- Added a toggle to view only selected biomes in the Biome Filter menu.
+- Improved menu performance by caching the active biome list while the screen is open.
 - Fixed optional Minimap filtering using Xaero's `setRGB` arguments in the wrong order.
 - Refreshes existing Minimap tiles when filter settings change.
 - Updated the development toolchain and Xaero dependencies for Minecraft 26.2.
