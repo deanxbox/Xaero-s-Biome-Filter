@@ -1,5 +1,6 @@
 plugins {
     id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'com.modrinth.minotaur' version '2.+'
 }
 
 version = project.mod_version
@@ -23,6 +24,20 @@ loom {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
+    }
+}
+
+modrinth {
+    token = System.getenv('MODRINTH_TOKEN')
+    projectId = 'xaeros-biome-filter'
+    versionNumber = project.mod_version
+    versionType = 'release'
+    uploadFile = tasks.jar
+    gameVersions = project.property('game_versions').toString().split(',').collect { it.trim() }
+    loaders = ['fabric']
+    dependencies {
+        required.project 'fabric-api'
+        required.project 'xaeros-world-map'
     }
 }
 
