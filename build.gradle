@@ -30,7 +30,8 @@ loom {
 modrinth {
     token = System.getenv('MODRINTH_TOKEN')
     projectId = 'xaeros-biome-filter'
-    versionNumber = project.mod_version
+    versionNumber = "${project.mod_version}+${project.minecraft_version}"
+    versionName = project.mod_version
     versionType = 'release'
     uploadFile = tasks.jar
     gameVersions = project.property('game_versions').toString().split(',').collect { it.trim() }
