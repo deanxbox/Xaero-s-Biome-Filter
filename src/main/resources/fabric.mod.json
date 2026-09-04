@@ -20,11 +20,11 @@
   ],
   "depends": {
     "fabricloader": ">=0.19.3",
-    "minecraft": ">=26.2 <26.3",
+    "minecraft": ">=26.1 <26.2",
     "java": ">=25",
     "xaeroworldmap": ">=1.42.0"
   },
   "suggests": {
-    "xaerominimap": ">=26.2.0"
+    "xaerominimap": ">=26.4.0"
   }
 }
