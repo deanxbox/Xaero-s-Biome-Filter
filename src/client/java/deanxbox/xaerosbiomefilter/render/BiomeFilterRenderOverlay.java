@@ -1,6 +1,6 @@
 package deanxbox.xaerosbiomefilter.render;
 
-import com.mojang.blaze3d.textures.GpuTextureView;
+import com.mojang.renderpearl.api.textures.GpuTextureView;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import deanxbox.xaerosbiomefilter.XaerosBiomeFilterClient;
 import net.minecraft.resources.ResourceKey;

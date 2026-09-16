@@ -65,8 +65,8 @@ def downloadIfMissing = { File target, String url ->
     }
 }
 
-downloadIfMissing(xaeroWorldMapJar, 'https://cdn.modrinth.com/data/NcUtCpym/versions/NzjI8AbM/xaeroworldmap-fabric-26.2-1.44.2.jar')
-downloadIfMissing(xaeroMinimapJar, 'https://cdn.modrinth.com/data/1bokaNcj/versions/W7vHFz3T/xaerominimap-fabric-26.2-26.4.2.jar')
+downloadIfMissing(xaeroWorldMapJar, 'https://cdn.modrinth.com/data/NcUtCpym/versions/f9XDypdw/xaeroworldmap-fabric-26.3-1.46.2.jar')
+downloadIfMissing(xaeroMinimapJar, 'https://cdn.modrinth.com/data/1bokaNcj/versions/bxZ2OjkZ/xaerominimap-fabric-26.3-26.5.1.jar')
 if (!xaeroLibJar.exists()) {
     copy {
         from zipTree(xaeroWorldMapJar)

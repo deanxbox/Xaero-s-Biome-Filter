@@ -1,6 +1,6 @@
 package deanxbox.xaerosbiomefilter.render;
 
-import com.mojang.blaze3d.textures.GpuTextureView;
+import com.mojang.renderpearl.api.textures.GpuTextureView;
 import xaero.lib.client.graphics.GpuTextureAndView;
 import xaero.map.region.texture.RegionTexture;
 
