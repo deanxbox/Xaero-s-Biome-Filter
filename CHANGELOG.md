@@ -4,6 +4,8 @@
 
 ## 1.1.2
 
+- Ported to Minecraft 26.3 (Fabric Loader, Fabric API, and Xaero's World Map/Minimap/Lib bumped to their 26.3 releases).
+- Fixed `GpuTextureView` import path, which moved to `com.mojang.renderpearl.api.textures` in 26.3.
 - Added a toggle to view only selected biomes in the Biome Filter menu.
 - Improved menu performance by caching the active biome list while the screen is open.
 - Fixed optional Minimap filtering using Xaero's `setRGB` arguments in the wrong order.
